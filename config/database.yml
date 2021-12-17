@@ -10,6 +10,6 @@ default: &default
 development:
   <<: *default
   database: Portfolio_development
-  username: arrivae
-  password: arrivae123
+  username: postgres
+  password: nopass
   port: 5432
