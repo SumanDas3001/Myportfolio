@@ -1,42 +1,69 @@
-<div class="card">
-  <div class="card-block">
-    <h2>Sign up</h2>
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-      <%= render "devise/shared/error_messages", resource: resource %>
-      <div class="row">
-        <div class="col-md-6">
-          <div class="form-group">
-            <%= f.label :email %><br />
-            <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control" %>
+<style>
+  .login-page {
+    margin-top: 5rem;
+  }
+
+  .login-logo, .register-logo {
+    font-size: 2.1rem;
+    font-weight: 300;
+    margin-bottom: .9rem;
+    text-align: center;
+  }
+
+  .card {
+    margin-bottom: 1rem;
+  }
+</style>
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-2 col-lg-2 col-md-2">
+      
+    </div>
+    <div class="col-sm-8 col-lg-8 col-md-8">
+      <div class="login-page" style="background: white; min-height: 362.391px;" cz-shortcut-listen="true">
+        <div class="login-box">
+          <div class="login-logo">
+            <b>DasDevGuide</b>
           </div>
-          <div>
-            <%= f.label :name %><br/>
-            <%= f.text_field :name, class:"form-control" %>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="form-group">
-            <%= f.label :password %>
-            <% if @minimum_password_length %>
-            <em>(<%= @minimum_password_length %> characters minimum)</em>
-            <% end %><br />
-            <%= f.password_field :password, autocomplete: "new-password", class:"form-control" %>
-          </div>
-          <div class="form-group">
-            <%= f.label :password_confirmation %><br />
-            <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control" %>
-          </div>
-        </div>
-        <div class="col-md-10"></div>
-        <div class="col-md-2">
-          <div class="form-group">
-            <%= f.submit "Sign up", class: 'btn btn-primary btn-block'  %>
-          </div>
-          <div class="auth-links register-text">
-            <%= render "devise/shared/links" %>
+
+          <div class="card">
+            <div class="card-body login-card-body">
+              <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+                <%= render "devise/shared/error_messages", resource: resource %>
+                <div class="form-group position-relative">
+                  <%= f.email_field :email, autofocus: true, required: true, autocomplete: "email", class:"form-control", placeholder: "Enter Email" %>
+                </div>
+                <div class="form-group position-relative">
+                  <%= f.text_field :name, autofocus: true, required: true, autocomplete: "name", class:"form-control", placeholder: "Enter Name" %>
+                </div>
+              
+                <div class="form-group position-relative">
+                  <% if @minimum_password_length %>
+                  <em>(<%= @minimum_password_length %> characters minimum)</em>
+                  <% end %><br />
+                  <%= f.password_field :password, autocomplete: "new-password", required: true, class:"form-control", placeholder: "Enter Password" %>
+                </div>
+                <div class="form-group position-relative">
+                  <%= f.password_field :password_confirmation, autocomplete: "new-password", required: true, class:"form-control", placeholder: "Enter Confirm Password" %>
+                </div>
+                <div class="form-group position-relative">
+                  <%= f.submit "Sign Up", class: "mt-4 btn btn-primary w-100" %>
+                </div>
+
+                <div class="auth-links register-text">
+                  <%= render "devise/shared/links" %>
+                </div>
+              <% end %>
+            </div>
           </div>
         </div>
       </div>
-    <% end %>
+    </div>
+    <div class="col-sm-2 col-lg-2 col-md-2">
+      
+    </div>
   </div>
 </div>

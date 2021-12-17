@@ -18,7 +18,14 @@
   </head>
 
   <body>
-    <div class="site-wrapper">
+    <%= render 'shared/blog_nav' %>
+    <div class="container">
+      <div class="row">
+        <%= yield %>
+      </div>
+    </div>
+    
+    <!--<div class="site-wrapper">
       <div class="site-wrapper-inner">
         <div class="cover-container">
 
@@ -42,6 +49,6 @@
 
         </div>
       </div>
-    </div> 
+    </div> -->
   </body>
 </html>

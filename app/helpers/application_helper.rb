@@ -24,30 +24,30 @@ module ApplicationHelper
 
 	def nav_items
 		[
-			{
-				url: root_path,
-				title: 'Home'
-			},
-			{
-				url: about_me_path,
-				title: 'About Me'
-			},
-			{
-				url: contact_path,
-				title: 'Contact'
-			},
+			# {
+			# 	url: root_path,
+			# 	title: 'Home'
+			# },
+			# {
+			# 	url: about_me_path,
+			# 	title: 'About Me'
+			# },
+			# {
+			# 	url: contact_path,
+			# 	title: 'Contact'
+			# },
 			{
 				url: blogs_path,
 				title: 'Blogs'
 			},
-			{
-				url: own_portfolios_path,
-				title: 'Portfolio'
-			},
-			{
-				url: tech_news_path,
-				title: 'Tech News'
-			}
+			# {
+			# 	url: own_portfolios_path,
+			# 	title: 'Portfolio'
+			# },
+			# {
+			# 	url: tech_news_path,
+			# 	title: 'Tech News'
+			# }
 		]
 	end
 
