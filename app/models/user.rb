@@ -17,9 +17,14 @@ class User < ApplicationRecord
 
   has_many :comments, dependent: :destroy
 
+  after_create :send_welcome_mail
 
   def first_name
   	return self.name.split.first
+  end
+
+  def send_welcome_mail
+    UserMailer.send_welcome(self.email, self.name).deliver
   end
 
 end

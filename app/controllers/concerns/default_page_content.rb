@@ -6,7 +6,7 @@ module DefaultPageContent
 	end
 
 	def set_page_default
-		@page_title = "Portfolio | Suman"
-		@set_keywords = "Suman Das Portfolio"
+		@page_title = "DasDevGuide"
+		@set_keywords = "DasDevGuide"
 	end
 end
