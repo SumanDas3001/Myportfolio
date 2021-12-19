@@ -41,6 +41,6 @@ module BlogsHelper
   end
 
   def total_favorite_count
-    UserFavoriteBlog.where(is_favorited: true).count
+    UserFavoriteBlog.where(is_favorited: true).count rescue 0
   end
 end
