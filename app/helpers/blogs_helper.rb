@@ -26,4 +26,21 @@ module BlogsHelper
   def blog_status_color blog
     'color: red;' if blog.draft?
   end
+
+  def blog_favorite_color blog, user
+    user_favorite_blog = UserFavoriteBlog.find_by(user_id: user.id, blog_id: blog.id) rescue nil
+    if user_favorite_blog.present?
+      'color: red;' if user_favorite_blog.is_favorited
+    else
+      'color: blue;' 
+    end
+  end
+
+  def blog_default_color
+    'color: blue;'
+  end
+
+  def total_favorite_count
+    UserFavoriteBlog.where(is_favorited: true).count
+  end
 end

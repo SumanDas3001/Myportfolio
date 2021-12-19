@@ -17,6 +17,9 @@ class User < ApplicationRecord
 
   has_many :comments, dependent: :destroy
 
+  has_many :user_favorite_blogs, -> { where('is_favorited = true') }, dependent: :destroy
+  has_many :blogs, through: :user_favorite_blogs
+
   after_create :send_welcome_mail
 
   def first_name

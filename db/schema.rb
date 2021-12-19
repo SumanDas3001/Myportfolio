@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_25_063405) do
+ActiveRecord::Schema.define(version: 2021_12_19_125829) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -81,6 +81,16 @@ ActiveRecord::Schema.define(version: 2019_11_25_063405) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "user_favorite_blogs", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "blog_id"
+    t.boolean "is_favorited", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["blog_id"], name: "index_user_favorite_blogs_on_blog_id"
+    t.index ["user_id"], name: "index_user_favorite_blogs_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -99,4 +109,6 @@ ActiveRecord::Schema.define(version: 2019_11_25_063405) do
   add_foreign_key "comments", "blogs"
   add_foreign_key "comments", "users"
   add_foreign_key "technologies", "own_portfolios"
+  add_foreign_key "user_favorite_blogs", "blogs"
+  add_foreign_key "user_favorite_blogs", "users"
 end

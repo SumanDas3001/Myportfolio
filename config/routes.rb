@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources :blogs do
     member do
       get :toggle_status # This routes is for draft or published post
+      get :favorite_unfavorite_blog
     end
   end
   mount ActionCable.server => '/cable'

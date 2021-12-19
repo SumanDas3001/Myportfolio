@@ -1,6 +1,6 @@
 class BlogsController < ApplicationController
-  before_action :set_blog, only: [:show, :edit, :update, :destroy, :toggle_status]
-  before_action :set_sidebar_topics, except: [:create, :update, :destroy, :toggle_status]
+  before_action :set_blog, only: [:show, :edit, :update, :destroy, :toggle_status, :favorite_unfavorite_blog]
+  before_action :set_sidebar_topics, except: [:create, :update, :destroy, :toggle_status, :favorite_unfavorite_blog]
   layout "blog"
   access all: [:show, :index], user: {except: [:destroy, :new, :create, :edit, :update, :toggle_status]}, site_admin: :all
 
@@ -74,6 +74,20 @@ class BlogsController < ApplicationController
     end
 
     redirect_to blogs_path
+  end
+
+  def favorite_unfavorite_blog
+    if !current_user.is_a?(GuestUser) && (logged_in?(:site_admin) || logged_in?(:user))
+      favourite = UserFavoriteBlog.find_or_create_by(user_id: current_user.id, blog_id: @blog.id)
+      if favourite.is_favorited 
+        favourite.update(is_favorited: false)
+      else
+        favourite.update(is_favorited: true)
+      end
+      redirect_to blogs_path
+    else
+      redirect_to blogs_path, alert: 'You need to login to continue.'
+    end
   end
 
   private

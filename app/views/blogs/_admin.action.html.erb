@@ -1,7 +1,16 @@
-<% if logged_in?(:site_admin) %>
 	<nav class="breadcrumb blogcrumb">
-		<%= link_to fa_icon('file-text'), toggle_status_blog_path(blog), style: blog_status_color(blog) %>
-		<%= link_to fa_icon('pencil-square-o'), edit_blog_path(blog) %> 
-		<%= link_to fa_icon('trash'), blog, method: :delete, data: { confirm: 'Are you sure?' } %>
+		<% if logged_in?(:site_admin) %>
+			<%= link_to fa_icon('file-text'), toggle_status_blog_path(blog), style: blog_status_color(blog) %>
+			<%= link_to fa_icon('pencil-square-o'), edit_blog_path(blog, current_user) %> 
+			<%= link_to fa_icon('trash'), blog, method: :delete, data: { confirm: 'Are you sure?' } %>
+		<% end %>
+		<% if !current_user.is_a?(GuestUser) %>
+			<%= link_to favorite_unfavorite_blog_blog_path(blog), style: blog_favorite_color(blog, current_user) do %>
+				<%= fa_icon('heart') %> <%= content_tag :span, total_favorite_count , class: 'badge', style: 'position: absolute; background: rosybrown; color: green; border-radius: 1.25rem;' %>
+			<% end %>
+		<% else %>
+			<%= link_to favorite_unfavorite_blog_blog_path(blog), style: blog_default_color() do %>
+				<%= fa_icon('heart') %> <%= content_tag :span, total_favorite_count , class: 'badge', style: 'position: absolute; background: rosybrown; color: green; border-radius: 1.25rem;' %>
+			<% end %>
+		<% end %>
 	</nav>
-<% end %>
