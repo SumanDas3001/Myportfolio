@@ -78,11 +78,13 @@ class BlogsController < ApplicationController
 
   def favorite_unfavorite_blog
     if !current_user.is_a?(GuestUser) && (logged_in?(:site_admin) || logged_in?(:user))
-      favourite = UserFavoriteBlog.find_or_create_by(user_id: current_user.id, blog_id: @blog.id)
-      if favourite.is_favorited 
-        favourite.update(is_favorited: false)
-      else
-        favourite.update(is_favorited: true)
+      favourite = UserFavoriteBlog.find_or_create_by(user_id: current_user.id, blog_id: @blog.id) rescue nil
+      if favourite.present?
+        if favourite.is_favorited 
+          favourite.update(is_favorited: false)
+        else
+          favourite.update(is_favorited: true)
+        end
       end
       redirect_to blogs_path
     else
