@@ -1,9 +1,11 @@
 <div class="col-sm-8 blog-main">
- 	<%= paginate @blogs, :page_links => false %>
+ 	<%#= paginate @blogs, :page_links => false %>
+  <%= will_paginate @blogs, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
   <%= render @blogs %>
 
   <nav class="blog-pagination">
-  	<%= paginate @blogs, :page_links => false %>
+  <%= will_paginate @blogs, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
+  	<%#= paginate @blogs, :page_links => false %>
   </nav>
 </div>
 

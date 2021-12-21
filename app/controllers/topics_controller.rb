@@ -10,9 +10,9 @@ class TopicsController < ApplicationController
   	@topic = Topic.find(params[:id])
 
   	if logged_in?(:site_admin)
-  		@blogs = @topic.blogs.recent.page(params[:page]).per(5)
+  		@blogs = @topic.blogs.recent.page(params[:page]).paginate(:page => params[:page], :per_page => 5)
   	else
-			@blogs = @topic.blogs.published.page(params[:page]).per(5)
+			@blogs = @topic.blogs.published.page(params[:page]).paginate(:page => params[:page], :per_page => 5)
   	end
   end
 
