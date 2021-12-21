@@ -1,3 +1,9 @@
+<style>
+  .social_signin {
+    padding-top: 47px;
+    padding-bottom: 50px;
+  }
+</style>
 <div class="col-sm-8 blog-main">
 	<h2><%= @blog.title %></h2>
 
@@ -21,6 +27,12 @@
 	<p>
 		<%= markdown @blog.body %>
 	</p>
+
+  <div class="social_signin">
+    <hr>
+    <h4>Social Share</h4>
+    <%= twitter_button %>
+  </div>
 
 	<%#= render 'comments/comment_form' %>
 

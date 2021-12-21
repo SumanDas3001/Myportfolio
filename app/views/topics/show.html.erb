@@ -2,10 +2,13 @@
 
   <h1><%= @topic.title %></h1>
 
-  <%= paginate @blogs %>
+  <%#= paginate @blogs %>
+  <%= will_paginate @blogs, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
+
   
   <%= render @blogs %>
 
-  <%= paginate @blogs %>
+  <%#= paginate @blogs %>
+  <%= will_paginate @blogs, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
 
 </div>
