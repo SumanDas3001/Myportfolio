@@ -13,10 +13,12 @@ module BlogsHelper
     coderayified = CodeRayify.new(filter_html: true, hard_wrap: true)
 
     options = {
+      no_intra_emphasis: true,
       fenced_code_blocks: true,
       no_intra_emphasis: true,
       autolink: true,
       lax_html_blocks: true,
+      lax_spacing: true
     }
 
     markdown_to_html = Redcarpet::Markdown.new(coderayified, options)
@@ -40,7 +42,7 @@ module BlogsHelper
     'color: blue;'
   end
 
-  def total_favorite_count
-    UserFavoriteBlog.where(is_favorited: true).count rescue 0
+  def total_favorite_count(blog)
+    UserFavoriteBlog.where(blog_id: blog.id, is_favorited: true).count rescue 0
   end
 end

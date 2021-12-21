@@ -6,11 +6,11 @@
 		<% end %>
 		<% if !current_user.is_a?(GuestUser) %>
 			<%= link_to favorite_unfavorite_blog_blog_path(blog), style: blog_favorite_color(blog, current_user) do %>
-				<%= fa_icon('heart') %> <%= content_tag :span, total_favorite_count , class: 'badge', style: 'position: absolute; background: rosybrown; color: green; border-radius: 1.25rem;' %>
+				<%= fa_icon('thumbs-up') %> <%= content_tag :span, total_favorite_count(blog) , class: 'badge', style: 'position: absolute; background: rosybrown; color: green; border-radius: 1.25rem;' %>
 			<% end %>
 		<% else %>
 			<%= link_to favorite_unfavorite_blog_blog_path(blog), style: blog_default_color() do %>
-				<%= fa_icon('heart') %> <%= content_tag :span, total_favorite_count , class: 'badge', style: 'position: absolute; background: rosybrown; color: green; border-radius: 1.25rem;' %>
+				<%= fa_icon('thumbs-up') %> <%= content_tag :span, total_favorite_count(blog) , class: 'badge', style: 'position: absolute; background: rosybrown; color: green; border-radius: 1.25rem;' %>
 			<% end %>
 		<% end %>
 	</nav>
