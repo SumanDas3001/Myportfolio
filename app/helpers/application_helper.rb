@@ -19,7 +19,7 @@ module ApplicationHelper
 
 	#### Copyright
 	def copyright_generator
-		CodecampViewTool::Render.copyright 'Suman Das', 'All right reserved'
+		CodecampViewTool::Render.copyright 'DasDevGuide', 'All right reserved'
 	end
 
 	def nav_items
