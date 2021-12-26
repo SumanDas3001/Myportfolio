@@ -86,9 +86,9 @@ class BlogsController < ApplicationController
           favourite.update(is_favorited: true)
         end
       end
-      redirect_to blogs_path
+      redirect_to blog_path
     else
-      redirect_to blogs_path, alert: 'You need to login to continue.'
+      redirect_to blog_path, alert: 'You need to login to continue.'
     end
   end
 
