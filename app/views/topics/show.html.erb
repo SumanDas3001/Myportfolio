@@ -1,8 +1,9 @@
 <div class="col-sm-8 blog-main">
-  <div class="card col-md-5">
-    <h1><%= @topic.title %></h1>
-  </div>
   
-  <%= link_to "Edit", edit_topic_path(@topic), style:'padding-right: 6px;' %>
-
+  <h1><%= @topic.title %></h1>
+  
+  
+  <%= will_paginate @blogs, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
+  <%= render @blogs %>
+  <%= will_paginate @blogs, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
 </div>

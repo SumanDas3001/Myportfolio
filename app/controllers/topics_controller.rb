@@ -2,7 +2,7 @@ class TopicsController < ApplicationController
   before_action :set_sidebar_topics
   before_action :set_topic, only: [:show, :edit, :update, :destroy]
 	layout 'blog'
-  access all: [:index], user: {except: [:destroy, :new, :create, :edit, :update, :show]}, site_admin: :all
+  access all: [:index, :show], user: {except: [:destroy, :new, :create, :edit, :update]}, site_admin: :all
 
   def index
   	@topics = Topic.all.page(params[:page]).paginate(:page => params[:page], :per_page => 10)
@@ -10,6 +10,11 @@ class TopicsController < ApplicationController
 
   def show
   	@topic = Topic.find(params[:id])
+    if logged_in?(:site_admin)
+  		@blogs = @topic.blogs.recent.page(params[:page]).paginate(:page => params[:page], :per_page => 5)
+  	else
+			@blogs = @topic.blogs.published.page(params[:page]).paginate(:page => params[:page], :per_page => 5)
+  	end
   end
 
   def new
