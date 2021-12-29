@@ -18,4 +18,10 @@ class Blog < ApplicationRecord
     order("created_at DESC")
   end
 
+  def self.search(search)
+    if search
+      where("lower(title) like ?", "%#{search.downcase}%")
+    end
+  end
+
 end

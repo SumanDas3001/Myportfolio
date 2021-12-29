@@ -10,6 +10,7 @@ class BlogsController < ApplicationController
     else
       @blogs = Blog.published.recent.page(params[:page]).paginate(:page => params[:page], :per_page => 5)
     end
+    @blogs = @blogs.search(params[:search]).page(params[:page]).paginate(:page => params[:page], :per_page => 5) if params[:search].present?
     @page_title = "DasDevGuide Blog"
   end
 
