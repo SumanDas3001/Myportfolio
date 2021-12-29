@@ -45,4 +45,8 @@ module BlogsHelper
   def total_favorite_count(blog)
     UserFavoriteBlog.where(blog_id: blog.id, is_favorited: true).count rescue 0
   end
+
+  def total_blog_of_topic(topic)
+    Blog.where(topic_id: topic.id, status: 'published').count rescue 0
+  end
 end

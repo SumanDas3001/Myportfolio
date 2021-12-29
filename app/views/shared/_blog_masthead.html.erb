@@ -2,7 +2,12 @@
   <div class="container">
     <h1 class="blog-title">Dev Thoughts</h1>
     <p class="lead blog-description">Ruby, Javascript, ReactJS and other developer related topics.</p>
-    <span><%= link_to 'Write a new Blog', new_blog_path if logged_in?(:site_admin) %></span>
+    <% if logged_in?(:site_admin) %>
+      <span><%= link_to 'Write a new Blog', new_blog_path %> | </span>
+    <% end %>
 		<span><%= link_to 'Topics', topics_path %></span>
+    <% if logged_in?(:site_admin) %>
+      <span> | <%= link_to 'Write new topic', new_topic_path %></span> 
+    <% end %>
   </div>
 </div>
