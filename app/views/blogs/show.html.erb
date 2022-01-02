@@ -8,6 +8,8 @@
   }
 </style>
 <div class="col-sm-8 blog-main">
+  <%= image_tag portfolio_img(@blog.image_url, 'thumb'), width: '100%' %>
+
   <h2><%= @blog.title %></h2>
   <p class="blog-post-meta">Published <%= distance_of_time_in_words(@blog.created_at, Time.now) %> ago
     <span class="like_button_possition">

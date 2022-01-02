@@ -5,7 +5,9 @@ class Blog < ApplicationRecord
 
   friendly_id :title, use: :slugged
 
-  validates_presence_of :title, :body, :topic_id
+  validates_presence_of :title, :body, :topic_id, :image
+
+  mount_uploader :image, BlogUploader
 
   belongs_to :topic
 

@@ -100,7 +100,7 @@ class BlogsController < ApplicationController
   end
 
   def blog_params
-    params.require(:blog).permit(:title, :body, :topic_id, :status)
+    params.require(:blog).permit(:title, :body, :topic_id, :status, :image)
   end
 
   def set_sidebar_topics
