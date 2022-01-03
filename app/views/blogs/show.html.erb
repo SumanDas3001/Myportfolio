@@ -7,8 +7,8 @@
     padding-left: 27px;
   }
 </style>
-<div class="col-sm-8 blog-main">
-  <%= image_tag @blog.try(:image_url), style: "width: 700px; height: 400px;"  if @blog.try(:image_url).present? %>
+<div class="col-sm-8 blog-main"> 
+  <%= image_tag @blog.try(:image_url), style: "width: 100%; height: auto;", class:"img-fluid"  if @blog.try(:image_url).present? %>
 
   <h2><%= @blog.title %></h2>
   <p class="blog-post-meta">Published <%= distance_of_time_in_words(@blog.created_at, Time.now) %> ago
@@ -65,5 +65,4 @@
   <div id="comments" data-blog-id="<%= @blog.id %>">
     <%= render @blog.comments %>
   </div>
-
 </div>
