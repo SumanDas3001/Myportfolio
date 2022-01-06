@@ -12,7 +12,7 @@
 <div class="col-sm-8 blog-main"> 
   <%= image_tag @blog.try(:image_url), style: "width: 100%; height: auto;", class:"img-fluid "  if @blog.try(:image_url).present? %>
 
-  <h2><%= @blog.title %></h2>
+  <h2 class="blog_title"><%= @blog.title %></h2>
   <p class="blog-post-meta">Published <%= distance_of_time_in_words(@blog.created_at, Time.now) %> ago
     <span class="like_button_possition">
       <% if !current_user.is_a?(GuestUser) %>
@@ -63,15 +63,15 @@
   </div>
 
   <div class="share-btn-container">
-    <a href="http://www.facebook.com/sharer.php?u=https%3A%2F%2Fwww.google.com%[title]=<%= @blog.topic.title %>" class="facebook-btn">
+    <a href="http://www.facebook.com/sharer.php?u=https%3A%2F%2Fwww.google.com%[title]=<%= @blog.topic.title %>" target="_blank" class="facebook-btn">
       <i class="fab fa-facebook"></i>
     </a>
 
-    <a href="http://twitter.com/share?text=<%= @blog.topic.title %>&url=https%3A%2F%2Fwww.google.com" class="twitter-btn">
+    <a href="http://twitter.com/share?text=<%= @blog.topic.title %>&url=https%3A%2F%2Fwww.google.com" target="_blank" class="twitter-btn">
       <i class="fab fa-twitter"></i>
     </a>
 
-    <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fwww.google.com&title=<%= @blog.topic.title %>" class="linkedin-btn">
+    <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fwww.google.com&title=<%= @blog.topic.title %>" target="_blank" class="linkedin-btn">
       <i class="fab fa-linkedin"></i>
     </a>
   </div>
@@ -90,10 +90,12 @@
   const twitterBtn = document.querySelector(".twitter-btn");
   const linkedinBtn = document.querySelector(".linkedin-btn");
 
-  function init() {
 
+  function init() {
+    
     let postUrl = encodeURI(document.location.href);
-    let postTitle = encodeURI("Hi everyone, please check this out: ");
+    let BlogTitle = document.querySelector(".blog_title");
+    let postTitle = encodeURI(BlogTitle.innerText);
 
     facebookBtn.setAttribute(
       "href",
