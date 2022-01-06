@@ -7,8 +7,10 @@
     padding-left: 27px;
   }
 </style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"/>
+
 <div class="col-sm-8 blog-main"> 
-  <%= image_tag @blog.try(:image_url), style: "width: 100%; height: auto;", class:"img-fluid"  if @blog.try(:image_url).present? %>
+  <%= image_tag @blog.try(:image_url), style: "width: 100%; height: auto;", class:"img-fluid "  if @blog.try(:image_url).present? %>
 
   <h2><%= @blog.title %></h2>
   <p class="blog-post-meta">Published <%= distance_of_time_in_words(@blog.created_at, Time.now) %> ago
@@ -60,9 +62,54 @@
     <%= twitter_button %>
   </div>
 
+  <div class="share-btn-container">
+    <a href="http://www.facebook.com/sharer.php?u=https%3A%2F%2Fwww.google.com%[title]=<%= @blog.topic.title %>" class="facebook-btn">
+      <i class="fab fa-facebook"></i>
+    </a>
+
+    <a href="http://twitter.com/share?text=<%= @blog.topic.title %>&url=https%3A%2F%2Fwww.google.com" class="twitter-btn">
+      <i class="fab fa-twitter"></i>
+    </a>
+
+    <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fwww.google.com&title=<%= @blog.topic.title %>" class="linkedin-btn">
+      <i class="fab fa-linkedin"></i>
+    </a>
+  </div>
+
+
 	<%= render 'comments/comment_form' %>
 
   <div id="comments" data-blog-id="<%= @blog.id %>">
     <%= render @blog.comments %>
   </div>
 </div>
+
+
+<script>
+  const facebookBtn = document.querySelector(".facebook-btn");
+  const twitterBtn = document.querySelector(".twitter-btn");
+  const linkedinBtn = document.querySelector(".linkedin-btn");
+
+  function init() {
+
+    let postUrl = encodeURI(document.location.href);
+    let postTitle = encodeURI("Hi everyone, please check this out: ");
+
+    facebookBtn.setAttribute(
+      "href",
+      `https://www.facebook.com/sharer.php?u=${postUrl}`
+    );
+
+    twitterBtn.setAttribute(
+      "href",
+      `https://twitter.com/share?url=${postUrl}&text=${postTitle}`
+    );
+
+    linkedinBtn.setAttribute(
+      "href",
+      `https://www.linkedin.com/shareArticle?url=${postUrl}&title=${postTitle}`
+    );
+  }
+
+  init();
+</script>
