@@ -100,8 +100,47 @@
   </div>
 </div>
 
-
 <script>
+  $(document).ready(function() {
+    const BlogTitle = document.querySelector(".blog_title");
+    const postTitle = encodeURI(BlogTitle.innerText);
+    console.log(BlogTitle.innerText)
+
+    $(".facebook-btn").on("click", function(){
+      var facebookBtn = document.querySelector(".facebook-btn");
+      var postUrl = encodeURI(document.location.href);
+      console.log(postUrl);
+      
+      facebookBtn.setAttribute(
+        "href",
+        `https://www.facebook.com/sharer.php?u=${postUrl}`
+      );
+    })
+
+    $(".twitter-btn").on("click", function(){
+      var twitterBtn = document.querySelector(".twitter-btn");
+      var postUrl = encodeURI(document.location.href);
+
+      twitterBtn.setAttribute(
+        "href",
+        `https://twitter.com/share?url=${postUrl}&text=${postTitle}`
+      );
+    })
+
+    $(".linkedin-btn").on("click", function(){
+      var linkedinBtn = document.querySelector(".linkedin-btn");
+      var postUrl = encodeURI(document.location.href);
+
+      linkedinBtn.setAttribute(
+        "href",
+        `https://www.linkedin.com/shareArticle?url=${postUrl}&title=${postTitle}`
+      );
+    })
+  });
+</script>
+
+
+<!--<script>
   const facebookBtn = document.querySelector(".facebook-btn");
   const twitterBtn = document.querySelector(".twitter-btn");
   const linkedinBtn = document.querySelector(".linkedin-btn");
@@ -130,4 +169,4 @@
   }
 
   init();
-</script>
+</script>-->
