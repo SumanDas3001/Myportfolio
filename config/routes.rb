@@ -1,8 +1,14 @@
 Rails.application.routes.draw do
   resources :topics
-  
   resources :comments
-  devise_for :users, path: '', path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'register'}
+  resources :users do
+    get :otp_screen, on: :collection
+    post :verify_otp, on: :collection
+    get :resend_otp, on: :collection
+  end
+
+  devise_for :users, path: "", controllers: { omniauth_callbacks: 'users/omniauth_callbacks', sessions: "sessions", registrations: "registrations" }, path_names: { sign_in: 'login', password: 'forgot', confirmation: 'confirm', unlock: 'unblock', sign_up: 'register', sign_out: 'signout'}
+  # devise_for :users, path: '', path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'register'}
   resources :own_portfolios, except: [:show] do
     put :sort, on: :collection
   end

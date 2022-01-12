@@ -36,6 +36,11 @@ gem 'gemoji'
 gem 'will_paginate'
 gem 'will_paginate-bootstrap4'
 gem 'shareable'
+gem 'jquery-validation-rails'
+gem 'omniauth-github', github: 'omniauth/omniauth-github', branch: 'master'
+gem 'omniauth-google-oauth2'
+gem "omniauth-rails_csrf_protection" # for omniauth 2.0
+
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
