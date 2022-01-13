@@ -31,7 +31,7 @@
 <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"/>-->
 
 <div class="col-sm-8 blog-main"> 
-  <%= image_tag @blog.try(:image_url), style: "width: 100%; height: auto;", class:"img-fluid "  if @blog.try(:image_url).present? %>
+  <%= image_tag @blog.try(:image_url), style: "width: 100%; height: auto;", class:"img-fluid " if @blog.try(:image_url).present? %>
 
   <h2 class="blog_title"><%= @blog.title %></h2>
   <p class="blog-post-meta">Published <%= distance_of_time_in_words(@blog.created_at, Time.now) %> ago

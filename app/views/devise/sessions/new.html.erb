@@ -12,6 +12,7 @@
 
   .card {
     margin-bottom: 1rem;
+    background-color: #e5dddd !important;
   }
 </style>
 
@@ -25,12 +26,17 @@
     <div class="col-sm-8 col-lg-8 col-md-8">
       <div class="login-page" style="background: white; min-height: 362.391px;" cz-shortcut-listen="true">
         <div class="login-box">
-          <div class="login-logo">
-            <b>DasDevGuide</b>
-          </div>
 
           <div class="card">
-            <div class="card-body login-card-body">
+            <div class="card-header login-logo">
+              <b>Welcome to DasDevGuide</b>
+            </div>
+            <div class="card-body login-card-body">    
+              <%= link_to "Sign in with Github", omniauth_authorize_path(User, :github), class: "mt-4 btn btn-dark w-100", method: :post, data: { disable_with: "Connecting..." } %><br />
+              <%= link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path, class: "mt-4 btn btn-danger w-100", method: :post, data: { disable_with: "Connecting..." } %><br />
+
+              <hr><h5 class="text-center">Have a password? Continue with your email address</h5>
+
               <%= form_for(resource, as: resource_name, url: session_path(resource_name), class: "login_form") do |f| %>
                 <div class="form-group position-relative">
                   <%#= f.label :email %><br />
