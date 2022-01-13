@@ -22,6 +22,6 @@
   <%#- resource_class.omniauth_providers.each do |provider| %>
     <%#= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider) %>
   <%# end %>
-  <%= link_to "Sign in with Github", omniauth_authorize_path(User, :github), method: :post, data: { disable_with: "Connecting..." } %><br />
-  <%= link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path, method: :post %>
+  <%#= link_to "Sign in with Github", omniauth_authorize_path(User, :github), class: "mt-4 btn btn-primary w-100", method: :post, data: { disable_with: "Connecting..." } %><br />
+  <%#= link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path, class: "mt-4 btn btn-primary w-100", method: :post, data: { disable_with: "Connecting..." } %>
 <% end %>
