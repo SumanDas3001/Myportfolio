@@ -79,15 +79,15 @@
 
   <div class="share-btn-container social_signin">
     <h4>Social Share</h4>
-    <a href="http://www.facebook.com/sharer.php?u=https%3A%2F%2Fwww.google.com%[title]=<%= @blog.topic.title %>" target="_blank" class="facebook-btn">
+    <a href="http://www.facebook.com/sharer.php?u=https%3A%2F%2Fwww.google.com%[title]=<%= @blog.topic.title %>" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" target="_blank" class="facebook-btn">
       <%= fa_icon('facebook 2x') %>
     </a>
 
-    <a href="http://twitter.com/share?text=<%= @blog.topic.title %>&url=https%3A%2F%2Fwww.google.com" target="_blank" class="twitter-btn">
+    <a href="http://twitter.com/share?text=<%= @blog.topic.title %>&url=https%3A%2F%2Fwww.google.com" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" target="_blank" class="twitter-btn">
       <%= fa_icon('twitter 2x') %>
     </a>
 
-    <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fwww.google.com&title=<%= @blog.topic.title %>" target="_blank" class="linkedin-btn">
+    <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fwww.google.com&title=<%= @blog.topic.title %>" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" target="_blank" class="linkedin-btn">
       <%= fa_icon('linkedin 2x') %>
     </a>
   </div>
@@ -100,7 +100,7 @@
   </div>
 </div>
 
-<script>
+<%# <script>
   $(document).ready(function() {
     const BlogTitle = document.querySelector(".blog_title");
     const postTitle = encodeURI(BlogTitle.innerText);
@@ -137,7 +137,7 @@
       );
     })
   });
-</script>
+</script> %>
 
 
 <!--<script>
