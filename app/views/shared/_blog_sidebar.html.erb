@@ -8,7 +8,7 @@
 
   <div class="sidebar-module">
     <h4>Topics</h4>
-    <% @side_bar_topics.each do |topic| %>
+    <% @side_bar_topics&.each do |topic| %>
       <%= link_to topic_path(topic) do %>
         <p><%= topic.title  %> <%= content_tag :span, total_blog_of_topic(topic), class: 'badge', style: 'position: absolute; background: rosybrown; color: green; border-radius: 1.25rem;' %></p>
       <%end%>
