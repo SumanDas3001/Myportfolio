@@ -44,10 +44,10 @@ module ApplicationHelper
 			# 	url: own_portfolios_path,
 			# 	title: 'Portfolio'
 			# },
-			# {
-			# 	url: tech_news_path,
-			# 	title: 'Tech News'
-			# }
+			{
+				url: tech_news_path,
+				title: 'Tech News'
+			}
 		]
 	end
 

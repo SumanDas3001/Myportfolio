@@ -28,7 +28,6 @@
     font-size: 30px;
   }
 </style>
-<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"/>-->
 
 <div class="col-sm-8 blog-main"> 
   <%= image_tag @blog.try(:image_url), style: "width: 100%; height: auto;", class:"img-fluid " if @blog.try(:image_url).present? %>
@@ -138,35 +137,3 @@
     })
   });
 </script>
-
-
-<!--<script>
-  const facebookBtn = document.querySelector(".facebook-btn");
-  const twitterBtn = document.querySelector(".twitter-btn");
-  const linkedinBtn = document.querySelector(".linkedin-btn");
-
-
-  function init() {
-    
-    let postUrl = encodeURI(document.location.href);
-    let BlogTitle = document.querySelector(".blog_title");
-    let postTitle = encodeURI(BlogTitle.innerText);
-
-    facebookBtn.setAttribute(
-      "href",
-      `https://www.facebook.com/sharer.php?u=${postUrl}`
-    );
-
-    twitterBtn.setAttribute(
-      "href",
-      `https://twitter.com/share?url=${postUrl}&text=${postTitle}`
-    );
-
-    linkedinBtn.setAttribute(
-      "href",
-      `https://www.linkedin.com/shareArticle?url=${postUrl}&title=${postTitle}`
-    );
-  }
-
-  init();
-</script>-->
