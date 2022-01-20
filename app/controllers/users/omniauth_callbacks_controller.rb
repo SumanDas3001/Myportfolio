@@ -1,6 +1,6 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def twitter
-    handle_auth "Twitter"
+    hamdle_twitter "Twitter"
   end
   
   def google_oauth2
@@ -19,6 +19,17 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     else
       session["devise.auth_data"] = request.env["omniauth.auth"].except(:extra)
       redirect_to new_user_registration_url, alert: @user.errors.full_messages.join("\n")
+    end
+  end
+
+  def hamdle_twitter(kind)
+    @user = User.create_from_twitter_data(request.env['omniauth.auth'])
+    if @user.persisted?
+      sign_in_and_redirect @user
+      set_flash_message(:notice, :success, kind: 'Twitter') if is_navigational_format?
+    else
+      flash[:error] = 'There was a problem signing you in through Twitter. Please register or try signing in later.'
+      redirect_to new_user_registration_url
     end
   end
 
