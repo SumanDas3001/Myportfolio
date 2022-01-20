@@ -40,7 +40,7 @@ gem 'jquery-validation-rails'
 gem 'omniauth-github', github: 'omniauth/omniauth-github', branch: 'master'
 gem 'omniauth-google-oauth2'
 gem "omniauth-rails_csrf_protection" # for omniauth 2.0
-
+gem 'omniauth-twitter'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

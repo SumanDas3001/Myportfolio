@@ -1,4 +1,8 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
+  def twitter
+    handle_auth "Twitter"
+  end
+  
   def google_oauth2
     handle_auth "Google"
   end
