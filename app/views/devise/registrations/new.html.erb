@@ -55,8 +55,8 @@
                   <h5 class="text-center">Continue with social sign up</h5>
                   <%= link_to "Sign Up with Github", omniauth_authorize_path(User, :github), class: "mt-4 btn btn-dark w-100", method: :post, data: { disable_with: "Connecting..." } %><br />
                   <%= link_to "Sign Up with Google", user_google_oauth2_omniauth_authorize_path, class: "mt-4 btn btn-danger w-100", method: :post, data: { disable_with: "Connecting..." } %>
-                  <%= link_to "Sign in with Twitter", user_twitter_omniauth_authorize_path, class: "mt-4 btn btn-danger w-100", method: :post %>
-
+                  <%#= link_to "Sign in with Twitter", user_twitter_omniauth_authorize_path, class: "mt-4 btn btn-danger w-100", method: :post %>
+                  <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path, class: "mt-4 btn btn-danger w-100" %>
                 </div>
 
                 <div class="auth-links register-text">

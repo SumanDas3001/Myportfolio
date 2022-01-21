@@ -12,7 +12,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, 
-         :omniauthable, omniauth_providers: [:github, :google_oauth2, :twitter]
+         :omniauthable, omniauth_providers: [:facebook, :github, :google_oauth2, :twitter]
 
   validates_presence_of :name
 
@@ -52,6 +52,15 @@ class User < ApplicationRecord
   def remove_otp_details
     otp_details.destroy_all if otp_details.present?
   end
+
+  def self.new_with_session(params, session)
+    super.tap do |user|
+      if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
+        user.email = data["email"] if user.email.blank?
+      end
+    end
+  end
+  
 
   def self.from_omniauth(access_token)
     where(provider: access_token.provider, uid: access_token.uid).first_or_create do | user |
