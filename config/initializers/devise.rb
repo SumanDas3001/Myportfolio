@@ -262,8 +262,8 @@ Devise.setup do |config|
   config.omniauth :github, 'fe9cb701dc4f95edf17a', 'ba016f20fbd6665d1ec2b97e691194d0beda2cb0'
   config.omniauth :google_oauth2, '27300028767-a9o5e1nttmv7uldva5sklds05the1urn.apps.googleusercontent.com', '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'
   # config.omniauth :twitter, ENV.fetch("TWITTER_CONSUMER_KEY"), ENV.fetch("TWITTER_CONSUMER_SECRET")
-  config.omniauth :facebook, ENV['FACEBOOK_APP_ID'], ENV['FACEBOOK_APP_SECRET'], callback_url: "http://localhost:3000/auth/facebook/callback" 
-  
+  # config.omniauth :facebook, ENV['FACEBOOK_APP_ID'], ENV['FACEBOOK_APP_SECRET'], info_fields: 'email,name,birthday', :client_options => {:site => 'https://graph.facebook.com/v2.6', :authorize_url => "https://www.facebook.com/v2.6/dialog/oauth"}
+
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

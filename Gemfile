@@ -42,7 +42,7 @@ gem 'omniauth-github', github: 'omniauth/omniauth-github', branch: 'master'
 gem 'omniauth-google-oauth2'
 gem "omniauth-rails_csrf_protection" # for omniauth 2.0
 gem 'omniauth-twitter', '~> 1.4'
-gem 'omniauth-facebook'
+gem 'omniauth-facebook', '~> 4.0'
 gem 'activerecord-session_store'
 
 group :development, :test do
