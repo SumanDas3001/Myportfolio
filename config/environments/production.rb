@@ -99,7 +99,7 @@ Rails.application.configure do
   config.action_cable.allowed_request_origins = ['https://sumandas-portfolio.herokuapp.com', 'http://sumandas-portfolio.herokuapp.com', 'http://www.dasdevguide.com']
   config.action_cable.url = "wss://www.dasdevguide.com/cable"
 
-  config.action_mailer.default_url_options = { :host => 'http://www.dasdevguide.com', protocol: 'http' }
+  config.action_mailer.default_url_options = { :host => 'dasdevguide.com', protocol: 'http' }
 
 
   ActionMailer::Base.smtp_settings = {
