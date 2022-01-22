@@ -94,20 +94,21 @@ Rails.application.configure do
 
   # config.action_mailer.delivery_method = :smtp
 
-  # config.action_mailer.perform_deliveries = true
+  config.action_mailer.perform_deliveries = true
 
   config.action_cable.allowed_request_origins = ['https://sumandas-portfolio.herokuapp.com', 'http://sumandas-portfolio.herokuapp.com', 'http://www.dasdevguide.com']
   config.action_cable.url = "wss://www.dasdevguide.com/cable"
 
-  config.action_mailer.default_url_options = { :host => 'dasdevguide.com', protocol: 'https' }
+  # config.action_mailer.default_url_options = { :host => 'dasdevguide.com', protocol: 'https' }
 
 
-  ActionMailer::Base.smtp_settings = {
-    :user_name => ENV.fetch("MAIL_USERNAME"),
-    :password => ENV.fetch("MAIL_PASSWORD"),
-    :address => ENV.fetch("MAIL_ADDRESS"),
-    :port => 587,
-    :authentication => :plain,
-    :enable_starttls_auto => true
-  }
+  # ActionMailer::Base.smtp_settings = {
+  #   :user_name => ENV.fetch("MAIL_USERNAME"),
+  #   :password => ENV.fetch("MAIL_PASSWORD"),
+  #   :address => ENV.fetch("MAIL_ADDRESS"),
+  #   :port => 587,
+  #   :authentication => :plain,
+  #   :enable_starttls_auto => true,
+  #   :openssl_verify_mode => 'none' 
+  # }
 end
