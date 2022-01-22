@@ -21,12 +21,6 @@ class RegistrationsController < Devise::RegistrationsController
       if resource.active_for_authentication?
         set_flash_message! :notice, :signed_up
         sign_up(resource_name, resource)
-        
-
-        # user_encrypt = UserEncryptDecrypt.new.encrypt(resource.id)
-        # redirect_to otp_screen_users_path(id: user_encrypt)
-
-
         respond_with resource, location: after_sign_up_path_for(resource)
       else
         set_flash_message! :notice, :"signed_up_but_#{resource.inactive_message}"

@@ -1,7 +1,0 @@
-<% if @success %>
-  alert("Successfully sent OTP!.");
-  otp_timer()
-<% else %>
-  $(".resendOtpBtn").prop('disabled', false)
-  alert("Please check the mobile number");
-<% end %>
