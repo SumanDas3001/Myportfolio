@@ -10,7 +10,7 @@ class User < ApplicationRecord
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable,
+  devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :validatable, 
          :omniauthable, omniauth_providers: [:facebook, :github, :google_oauth2, :twitter]
 
@@ -22,7 +22,7 @@ class User < ApplicationRecord
   has_many :blogs, through: :user_favorite_blogs
   has_many :otp_details, dependent: :destroy
 
-  after_create :send_welcome_mail
+  # after_create :send_welcome_mail
 
   OTP_EXPIRY_TIME = 2 # In minutes
 
