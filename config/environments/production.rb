@@ -98,7 +98,7 @@ Rails.application.configure do
   # config.action_mailer.default_url_options = { :host => 'sumandas-portfolio.herokuapp.com', protocol: 'https' }
 
 
-  config.action_mailer.default_url_options = { :host => 'sumandas-portfolio.herokuapp.com' }  
+  config.action_mailer.default_url_options = { :host => 'dasdevguide.com', protocol: 'http' }  
   config.action_mailer.delivery_method = :smtp  
   config.action_mailer.perform_deliveries = true  
   config.action_mailer.raise_delivery_errors = true  
@@ -107,7 +107,7 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {  
     address: "smtp.gmail.com",
     port: 587,
-    domain: "sumandas-portfolio.herokuapp.com",
+    domain: "dasdevguide.com",
     authentication: "plain",
     enable_starttls_auto: true,
     user_name: ENV.fetch("MAIL_USERNAME"),
