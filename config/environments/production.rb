@@ -92,22 +92,34 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  config.action_mailer.delivery_method = :smtp
-
-  config.action_mailer.perform_deliveries = true
-
+  
   config.action_cable.allowed_request_origins = ['https://sumandas-portfolio.herokuapp.com', 'http://sumandas-portfolio.herokuapp.com', 'http://www.dasdevguide.com']
   config.action_cable.url = "wss://www.dasdevguide.com/cable"
+  
+  config.action_mailer.default_url_options = { :host => 'https://sumandas-portfolio.herokuapp.com', protocol: 'https' }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+  
 
-  config.action_mailer.default_url_options = { :host => 'dasdevguide.com', protocol: 'https' }
-
+  # ActionMailer::Base.smtp_settings = {
+  #   :user_name => ENV.fetch("MAIL_USERNAME"),
+  #   :password => ENV.fetch("MAIL_PASSWORD"),
+  #   :address => ENV.fetch("MAIL_ADDRESS"),
+  #   :port => 587,
+  #   :authentication => :plain,
+  #   :enable_starttls_auto => true
+  # }
 
   ActionMailer::Base.smtp_settings = {
-    :user_name => ENV.fetch("MAIL_USERNAME"),
-    :password => ENV.fetch("MAIL_PASSWORD"),
-    :address => ENV.fetch("MAIL_ADDRESS"),
-    :port => 587,
+    :port           => 587,
+    :address        => 'smtp.sendgrid.net',
+    :user_name      => ENV['SENDGRID_USERNAME'],
+    :password       => ENV['SENDGRID_PASSWORD'],
+    :domain         => 'sumandas-portfolio.herokuapp.com',
     :authentication => :plain,
     :enable_starttls_auto => true
   }
+
+
+
 end

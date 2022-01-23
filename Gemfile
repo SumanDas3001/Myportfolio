@@ -45,6 +45,7 @@ gem 'omniauth-twitter', '~> 1.4'
 gem 'omniauth-facebook', '~> 4.0'
 gem 'activerecord-session_store'
 gem 'pygments.rb'
+gem 'sendgrid-ruby'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
