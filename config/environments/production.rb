@@ -67,7 +67,6 @@ Rails.application.configure do
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
-  # config.action_mailer.raise_delivery_errors = true
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
@@ -96,29 +95,34 @@ Rails.application.configure do
   config.action_cable.allowed_request_origins = ['https://sumandas-portfolio.herokuapp.com', 'http://sumandas-portfolio.herokuapp.com', 'http://www.dasdevguide.com']
   config.action_cable.url = "wss://www.dasdevguide.com/cable"
   
-  config.action_mailer.default_url_options = { :host => 'https://sumandas-portfolio.herokuapp.com', protocol: 'https' }
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.perform_deliveries = true
-  
+  # config.action_mailer.default_url_options = { :host => 'sumandas-portfolio.herokuapp.com', protocol: 'https' }
+
+
+  config.action_mailer.default_url_options = { :host => 'sumandas-portfolio.herokuapp.com' }  
+  config.action_mailer.delivery_method = :smtp  
+  config.action_mailer.perform_deliveries = true  
+  config.action_mailer.raise_delivery_errors = false  
+  config.action_mailer.default :charset => "utf-8"  
+
+  config.action_mailer.smtp_settings = {  
+    address: "smtp.gmail.com",
+    port: 587,
+    domain: "sumandas-portfolio.herokuapp.com",
+    authentication: "plain",
+    enable_starttls_auto: true,
+    user_name: ENV.fetch("MAIL_USERNAME"),
+    password: ENV.fetch("MAIL_PASSWORD")
+  }
 
   # ActionMailer::Base.smtp_settings = {
-  #   :user_name => ENV.fetch("MAIL_USERNAME"),
-  #   :password => ENV.fetch("MAIL_PASSWORD"),
-  #   :address => ENV.fetch("MAIL_ADDRESS"),
-  #   :port => 587,
+  #   :port           => 587,
+  #   :address        => 'smtp.sendgrid.net',
+  #   :user_name      => "apikey",
+  #   :password       => ENV['SENDGRID_API_KEY'],
+  #   :domain         => 'sumandas-portfolio.herokuapp.com',
   #   :authentication => :plain,
   #   :enable_starttls_auto => true
   # }
-
-  ActionMailer::Base.smtp_settings = {
-    :port           => 587,
-    :address        => 'smtp.sendgrid.net',
-    :user_name      => "apikey",
-    :password       => ENV['SENDGRID_API_KEY'],
-    :domain         => 'sumandas-portfolio.herokuapp.com',
-    :authentication => :plain,
-    :enable_starttls_auto => true
-  }
 
 
 
