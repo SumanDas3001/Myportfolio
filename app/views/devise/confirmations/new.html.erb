@@ -1,16 +1,41 @@
-<h2>Resend confirmation instructions</h2>
+<style>
+  .card {
+    margin-bottom: 1rem;
+    background-color: #e5dddd !important;
+  }
+</style>
 
-<%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-2 col-lg-2 col-md-2"></div>
+    <div class="col-sm-8 col-lg-8 col-md-8">
+      <div class="login-page" style="background: white; min-height: 362.391px;" cz-shortcut-listen="true">
+        <div class="login-box">
+          <div class="card">
+            <div class="card-header login-logo">
+              <b>Resend confirmation instructions</b>
+            </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
+            <div class="card-body login-card-body">
+              <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+                <%= render "devise/shared/error_messages", resource: resource %>
+                <div class="form-group position-relative">
+                  <%= f.label :email %><br />
+                  <%= f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), class:"form-control", placeholder: "Enter Email" %>
+                </div>
+
+                <div class="actions">
+                  <%= f.submit "Resend confirmation instructions", class: "mt-4 btn btn-primary w-100" %>
+                </div>
+              <% end %>
+              <div class="auth-links register-text">
+                <%= render "devise/shared/links" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-2 col-lg-2 col-md-2"></div>
   </div>
-
-  <div class="actions">
-    <%= f.submit "Resend confirmation instructions" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>
