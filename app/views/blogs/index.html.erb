@@ -12,7 +12,7 @@
   <% if @blogs.present? %>
     <%= render @blogs %>
   <% else %>
-    <p>Search Not Founnd!</p>
+    <p>Search Not Found! <%= Emoji.find_by_alias("exclamation").raw %></p>
   <% end %>
 
   <nav class="blog-pagination">
