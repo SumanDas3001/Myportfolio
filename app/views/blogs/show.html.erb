@@ -107,10 +107,14 @@
     <div class="card-deck latest_blog">
       <% @latest_blogs.each do |latest_blog| %>
         <div class="card">
-          <%= image_tag latest_blog.try(:image_url), style: "width: 100%; height: auto;", class:"img-fluid " if latest_blog.try(:image_url).present? %>
+          <% if latest_blog.try(:image_url).present? %>
+            <%= image_tag latest_blog.try(:image_url), style: "width: 100%; height: auto;", class:"img-fluid" %>
+          <% else %>
+            <%= image_tag "no-image-available-icon.jpg" %>
+          <% end %>
           <div class="card-body">
             <%= link_to blog_path(latest_blog) do %>
-              <p class="card-text"><%= markdown(latest_blog.body.truncate(50)) %></p> 
+              <p class="card-text"><%= markdown(latest_blog.body.truncate(100)) %></p> 
             <% end %>
           </div>
         </div>
