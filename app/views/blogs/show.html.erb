@@ -114,7 +114,7 @@
           <% end %>
           <div class="card-body">
             <%= link_to blog_path(latest_blog) do %>
-              <p class="card-text"><%= markdown(latest_blog.body.truncate(100)) %></p> 
+              <p class="card-text"><%= latest_blog.title %></p> 
             <% end %>
           </div>
         </div>
