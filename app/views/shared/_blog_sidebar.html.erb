@@ -24,7 +24,7 @@
     <% @side_bar_topics&.each do |topic| %>
       <%= link_to topic_path(topic) do %>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item"><a href="http://localhost:3000/topics/<%= topic.id %>" target="_blank"><%= topic.title  %></a></li>
+          <li class="list-group-item"><a href="http://www.dasdevguide.com/topics/<%= topic.id %>"><%= topic.title  %></a></li>
         </ul>
       <%end%>
     <% end %>
