@@ -106,12 +106,11 @@
     <h4>Related articles</h4><br>
     <div class="card-deck latest_blog">
       <% @latest_blogs.each do |latest_blog| %>
-        <div class="card mb-3" style="max-width: 18rem;">
-          <div class="card-header"><%= latest_blog.topic.title %></div>
+        <div class="card">
+          <%= image_tag @blog.try(:image_url), style: "width: 100%; height: auto;", class:"img-fluid " if @blog.try(:image_url).present? %>
           <div class="card-body">
-            <h5 class="card-title"><%= latest_blog.title %></h5>
             <%= link_to blog_path(latest_blog) do %>
-              <p class="card-text"><%= markdown(latest_blog.body.truncate(100)) %></p> 
+              <p class="card-text"><%= markdown(latest_blog.body.truncate(50)) %></p> 
             <% end %>
           </div>
         </div>
