@@ -2,11 +2,11 @@
   <div class="sidebar-module sidebar-module-inset">
     <h4>About</h4>
     <p>DasDevGuide <em>is a blog website. </em> From this website users will easily get important information about HTML, CSS, JavaScript and various programming languages and solutions to various problems be provided here. </p>
-  </div>
+  </div><br>
 
   <%= source_helper("alert alert-success blog-sidebar-source font-style") %>
 
-  <div class="sidebar-module">
+  <!--<div class="sidebar-module">
     <h4>Topics</h4>
     <% @side_bar_topics&.each do |topic| %>
       <%= link_to topic_path(topic) do %>
@@ -14,16 +14,40 @@
         <%#= content_tag :span, total_blog_of_topic(topic), class: 'badge', style: 'position: absolute; background: rosybrown; color: green; border-radius: 1.25rem;' %>
       <%end%>
     <% end %>
-  </div>
+  </div>-->
 
-  <div class="sidebar-module">
-    <h4>Recommended Content</h4>
+  <div class="card border-secondary">
+    <div class="card-header">
+      Topics
+    </div>
+
+    <% @side_bar_topics&.each do |topic| %>
+      <%= link_to topic_path(topic) do %>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><a href="http://localhost:3000/topics/<%= topic.id %>" target="_blank"><%= topic.title  %></a></li>
+        </ul>
+      <%end%>
+    <% end %>
+  </div><br>
+
+  <%# <div class="sidebar-module"> %>
+    <!--<h4>Recommended Content</h4>
     <ol class="list-unstyled">
       <li><a href="http://www.dasdevguide.com/blogs/how-to-upload-an-excel-file-into-s3-bucket-using-ruby-on-rails" target="_blank">How to upload an excel file into S3 bucket using ruby on rails</a></li><br>
       <li><a href="http://www.dasdevguide.com/blogs/difference-between-include-and-extend-in-rails" target="_blank">Difference between include and extend in rails?</a></li><br>
       <li><a href="http://www.dasdevguide.com/blogs/what-is-capybara" target="_blank">Web Testing with Capybara</a></li>
-    </ol>
-  </div>
+    </ol>-->
+    <div class="card border-secondary">
+      <div class="card-header">
+        Recommended Content
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"><a href="http://www.dasdevguide.com/blogs/how-to-upload-an-excel-file-into-s3-bucket-using-ruby-on-rails" target="_blank">How to upload an excel file into S3 bucket using ruby on rails</a></li>
+        <li class="list-group-item"><a href="http://www.dasdevguide.com/blogs/difference-between-include-and-extend-in-rails" target="_blank">Difference between include and extend in rails?</a></li>
+        <li class="list-group-item"><a href="http://www.dasdevguide.com/blogs/what-is-capybara" target="_blank">Web Testing with Capybara</a></li>
+      </ul>
+    </div>
+  <%# </div> %>
 
   <%# <div class="sidebar-module"> %>
     <%# <h4>Follow Us</h4> %>

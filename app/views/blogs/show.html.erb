@@ -27,6 +27,10 @@
     color: #0077b5;
     font-size: 30px;
   }
+
+  .card-deck.latest_blog {
+    padding-bottom: 50px;
+  }
 </style>
 
 <div class="col-sm-8 blog-main"> 
@@ -97,6 +101,23 @@
   <div id="comments" data-blog-id="<%= @blog.id %>">
     <%= render @blog.comments %>
   </div>
+
+  <% if @latest_blogs.present? %>
+    <h4>Related articles</h4><br>
+    <div class="card-deck latest_blog">
+      <% @latest_blogs.each do |latest_blog| %>
+        <div class="card border-secondary mb-3" style="max-width: 18rem;">
+          <%= link_to blog_path(latest_blog) do %>
+            <div class="card-header"><%= latest_blog.topic.title %></div>
+            <div class="card-body">
+              <h5 class="card-title"><%= latest_blog.title %></h5>
+              <p class="card-text"><%= markdown(latest_blog.body.truncate(100)) %></p> 
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
 </div>
 
 <script>
