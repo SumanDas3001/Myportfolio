@@ -106,14 +106,14 @@
     <h4>Related articles</h4><br>
     <div class="card-deck latest_blog">
       <% @latest_blogs.each do |latest_blog| %>
-        <div class="card border-secondary mb-3" style="max-width: 18rem;">
-          <%= link_to blog_path(latest_blog) do %>
-            <div class="card-header"><%= latest_blog.topic.title %></div>
-            <div class="card-body">
-              <h5 class="card-title"><%= latest_blog.title %></h5>
+        <div class="card mb-3" style="max-width: 18rem;">
+          <div class="card-header"><%= latest_blog.topic.title %></div>
+          <div class="card-body">
+            <h5 class="card-title"><%= latest_blog.title %></h5>
+            <%= link_to blog_path(latest_blog) do %>
               <p class="card-text"><%= markdown(latest_blog.body.truncate(100)) %></p> 
-            </div>
-          <% end %>
+            <% end %>
+          </div>
         </div>
       <% end %>
     </div>
