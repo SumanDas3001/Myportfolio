@@ -110,7 +110,7 @@
           <% if latest_blog.try(:image_url).present? %>
             <%= image_tag latest_blog.try(:image_url), style: "width: 100%; height: auto;", class:"img-fluid" %>
           <% else %>
-            <%= image_tag "no-image-available-icon.jpg" %>
+            <%= image_tag "no-image-available-icon.jpg", style: "width: 100%; height: auto;", class:"img-fluid" %>
           <% end %>
           <div class="card-body">
             <%= link_to blog_path(latest_blog) do %>
