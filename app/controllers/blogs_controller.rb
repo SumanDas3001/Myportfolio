@@ -22,7 +22,7 @@ class BlogsController < ApplicationController
       @page_title = @blog.title
       @seo_keywords = @blog.body
 
-      @latest_blogs = Topic.find(@blog.topic_id).blogs.last(3) rescue []
+      @latest_blogs = Topic.find(@blog.topic_id).blogs.last(3).except(@blog) rescue []
     else
       redirect_to blogs_path, notice: "You are not authorized to access this page"
     end
