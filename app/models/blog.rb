@@ -26,4 +26,8 @@ class Blog < ApplicationRecord
     end
   end
 
+  def self.find_latest_blog(blog_id)
+    where.not(id: blog_id).last(3) rescue []
+  end
+
 end
