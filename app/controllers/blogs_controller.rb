@@ -6,11 +6,11 @@ class BlogsController < ApplicationController
 
   def index
     if logged_in?(:site_admin)
-      @blogs = Blog.recent.page(params[:page]).paginate(:page => params[:page], :per_page => 5)
+      @blogs = Blog.recent.page(params[:page]).paginate(:page => params[:page], :per_page => 10)
     else
-      @blogs = Blog.published.recent.page(params[:page]).paginate(:page => params[:page], :per_page => 5)
+      @blogs = Blog.published.recent.page(params[:page]).paginate(:page => params[:page], :per_page => 10)
     end
-    @blogs = @blogs.search(params[:search]).page(params[:page]).paginate(:page => params[:page], :per_page => 5) if params[:search].present?
+    @blogs = @blogs.search(params[:search]).page(params[:page]).paginate(:page => params[:page], :per_page => 10) if params[:search].present?
     @page_title = "DasDevGuide Blog"
   end
 
