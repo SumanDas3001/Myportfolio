@@ -1,7 +1,7 @@
 <div class="blog-post">
   <h4 class="blog-post-title"><%= link_to blog.title.upcase, blog %></h4>
   <p class="blog-post-meta">Published <%= distance_of_time_in_words(blog.created_at, Time.now) %> ago</p>
-  <%= image_tag blog.try(:image_url), style: "width: 100%; height: auto;", class:"img-fluid"  if blog.try(:image_url).present? %>
+  <%#= image_tag blog.try(:image_url), style: "width: 100%; height: auto;", class:"img-fluid"  if blog.try(:image_url).present? %>
 
   <%= render partial: 'blogs/admin.action', locals: { blog: blog } %>
 
