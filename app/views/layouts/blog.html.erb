@@ -12,26 +12,18 @@
     <%= csp_meta_tag %>
     <%= favicon_link_tag 'favicons/favicon.ico' %>
 
-
     <%= stylesheet_link_tag 'blogs', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-
     <%= render 'shared/blog_nav' %>
     <%= render 'shared/blog_masthead' %>
-
     <div class="container">
       <div class="row">
-        
         <%= yield %>
-
         <%#= render "shared/blog_sidebar" %>
-        
       </div> 
-
-
       <%= alerts %>
     </div>
     <%= render 'shared/blog_footer' %>
