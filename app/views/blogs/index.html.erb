@@ -16,8 +16,8 @@
   <% end %>
 
   <nav class="blog-pagination">
-  <%= will_paginate @blogs, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
-  	<%#= paginate @blogs, :page_links => false %>
+    <%#= will_paginate @blogs, renderer: BootstrapPagination::Rails %>
+  	<%= paginate @blogs, :page_links => false %>
   </nav>
 </div>
 

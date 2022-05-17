@@ -6,7 +6,8 @@
   </div>
 
   <nav class="blog-pagination">
-    <%= will_paginate @topics, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
+    <%#= will_paginate @topics, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
+    <%= paginate @topics, :page_links => false %>
   </nav>
 
 </div>

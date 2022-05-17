@@ -72,9 +72,7 @@
     <% end %>
 	</nav>
 
-	<p>
-		<%= @blog.topic.title %>
-	</p>
+	<h5><span class="badge badge-secondary"><%= @blog.topic.title %></span></h5>
 
 	<p>
 		<%= markdown @blog.body %>
@@ -93,6 +91,7 @@
     <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fwww.google.com&title=<%= @blog.topic.title %>" target="_blank" class="linkedin-btn">
       <%= fa_icon('linkedin 2x') %>
     </a>
+    <a href="#" class="clipboard" style="padding-left: 2px";>Copy Link</a>
   </div>
 
 
@@ -159,5 +158,16 @@
         `https://www.linkedin.com/shareArticle?url=${postUrl}&title=${postTitle}`
       );
     })
+
+    var $temp = $("<input>");
+    var $url = $(location).attr('href');
+
+    $('.clipboard').on('click', function() {
+      $("body").append($temp);
+      $temp.val($url).select();
+      document.execCommand("copy");
+      $temp.remove();
+    })
+
   });
 </script>
