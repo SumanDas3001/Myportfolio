@@ -235,3 +235,79 @@ div#comments {
   padding-bottom: 20px;
   padding-top: 20px;
 }
+
+
+.social_signin {
+  padding-top: 47px;
+  padding-bottom: 50px;
+}
+span.like_button_possition {
+  padding-left: 27px;
+}
+
+.share-btn-container a:hover {
+  transform: scale(1.2);
+}
+
+.share-btn-container .fa-facebook {
+  color: #3b5998;
+  font-size: 30px;
+  padding-right: 5px;
+}
+
+.share-btn-container .fa-twitter {
+  color: #1da1f2;
+  font-size: 30px;
+  padding-right: 5px;
+}
+
+.share-btn-container .fa-linkedin {
+  color: #0077b5;
+  font-size: 30px;
+}
+
+.card-deck.latest_blog {
+  padding-bottom: 50px;
+}
+
+#snackbar {
+  visibility: hidden;
+  min-width: 250px;
+  margin-left: -125px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 2px;
+  padding: 16px;
+  position: fixed;
+  z-index: 1;
+  left: 50%;
+  bottom: 500px;
+  font-size: 17px;
+}
+
+#snackbar.show {
+  visibility: visible;
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@-webkit-keyframes fadein {
+  from {bottom: 0; opacity: 0;} 
+  to {bottom: 500px; opacity: 1;}
+}
+
+@keyframes fadein {
+  from {bottom: 0; opacity: 0;}
+  to {bottom: 500px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+  from {bottom: 500px; opacity: 1;} 
+  to {bottom: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+  from {bottom: 500px; opacity: 1;}
+  to {bottom: 0; opacity: 0;}
+}
