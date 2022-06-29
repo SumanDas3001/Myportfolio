@@ -5,56 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title><%= @page_title %></title>
     <%= csrf_meta_tags %>
-
+    
     <link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Slab&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
-
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500&display=swap" rel="stylesheet">
-
     <link href="https://fonts.googleapis.com/css?family=Source+Serif+Pro:400,600&display=swap" rel="stylesheet">
     <meta name="keywords" content="<%= @set_keywords %>" />
 
+    <%= csp_meta_tag %>
     <%= favicon_link_tag 'favicons/favicon.ico' %>
 
-    <%= csp_meta_tag %>
-    
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'blogs', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
     <%= render 'shared/blog_nav' %>
+    <%#= render 'shared/blog_masthead' %>
     <div class="container">
       <div class="row">
         <%= yield %>
-        <%= alerts %>
-      </div>
+        <%#= render "shared/blog_sidebar" %>
+      </div> 
+      <%= alerts %>
     </div>
-    
-    <!--<div class="site-wrapper">
-      <div class="site-wrapper-inner">
-        <div class="cover-container">
-
-          <%= video_tag(
-              'HardDrivePhotojpeg.mp4',
-              id: 'background',
-              autoplay: true,
-              loop: true,
-              muted: true,
-              poster: 'home_bg.png'
-            )
-          %>
-
-          <%= render "shared/application_nav" %>
-
-          <%= yield %>
-
-          <%= render "shared/application_footer" %>
-
-          <%= alerts %>
-
-        </div>
-      </div>
-    </div> -->
+    <%= render 'shared/blog_footer' %>
   </body>
 </html>
