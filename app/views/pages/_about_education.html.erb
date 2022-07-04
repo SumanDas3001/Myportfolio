@@ -1,12 +1,40 @@
+<style>
+	.college-image {
+		margin: 40px auto;
+		width: 25%;
+		min-height: 10vh;
+		border-radius: 10%;
+		box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+	}
+</style>
+
+
 <div class="collapse" id="education">
-	<div class="card card-block">
-		College
+	<div class="card card-block mb-2">
+		<div class="row">
+			<div class="col-sm-5">
+				<%= image_tag "brainware_college.jpeg", alt: "Profile Image", class: "company-image" %>
+			</div>
+			<div class="col-sm-7">
+				<div class="card-body">
+					<h5 class="card-title">SDET- Brainware Group of Institutions</h5>
+					<p class="card-text">Alice is a freelance web designer and developer based in London. She is specialized in HTML5, CSS3, JavaScript, Bootstrap, etc.</p>
+				</div>
+			</div>
+		</div>
 	</div>
-	<div class="card card-block">
-		School 1
-	</div>
-	<div class="card card-block">
-		School 2
+	<div class="card card-block mb-2">
+		<div class="row">
+			<div class="col-sm-5">
+				<%= image_tag "kalna_polytechnic_college.jpeg", alt: "Profile Image", class: "company-image" %>
+			</div>
+			<div class="col-sm-7">
+				<div class="card-body">
+					<h5 class="card-title">Kalna Polytechnic</h5>
+					<p class="card-text">Alice is a freelance web designer and developer based in London. She is specialized in HTML5, CSS3, JavaScript, Bootstrap, etc.</p>
+				</div>
+			</div>
+		</div>
 	</div>
 </div>
 				

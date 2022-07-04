@@ -1,25 +1,99 @@
-<div class="app-card-container">
-	<div class="card">
-		<h5><%= link_to 'Back', root_path %></h5>
-		<h1>Would you like to work together?</h1>
-		<hr>
-		<div class="row">
-			<div class="col-md-6">
-				<h3>Office Address</h3>
-
-		    <p>7150 E Camelback Rd, Suite 444, Scottsdale, AZ 85251</p>
-
-		    <h3>Phone</h3>
-
-		    <p><%= number_to_phone "4322386131" %></p>
-
-		    <h3>Email</h3>
-
-				<p><a href="mailto:sumandas3001@gmail.com?subject=PortfolioContact" "email me">Email me</a> </p>
-			</div>
-			<div class="col-md-6">
-				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7539.922453310496!2d72.86191969328995!3d19.109356835679133!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c83966044071%3A0xdf3c0601bbc89ec!2sChakala%20(J%20B%20Nagar)!5e0!3m2!1sen!2sin!4v1573800500669!5m2!1sen!2sin" width="450" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+<section class="ftco-section">
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-md-12">
+				<div class="wrapper">
+					<div class="row no-gutters mb-5">
+						<div class="col-md-7">
+							<div class="contact-wrap w-100 p-md-5 p-4">
+								<h3 class="mb-4">Contact Us</h3>
+								<div id="form-message-warning" class="mb-4"></div> 
+								<%# <div id="form-message-success" class="mb-4">
+									Your message was sent, thank you!
+								</div> %>
+								<%= form_with(url: contact_us_path, method: "POST", :id=> "contact-us contactForm", class:"contactForm", name:"contactForm") do |form| %>
+									<div class="row">
+										<div class="col-md-6">
+											<div class="form-group">
+												<%= form.label :name, 'Full name' %>
+												<%= form.text_field :name, class: 'form-control', id: 'name', placeholder: 'Enter your name' %>
+											</div>
+										</div>
+										<div class="col-md-6"> 
+											<div class="form-group">
+												<%= form.label :email, 'Email Address' %>
+												<%= form.text_field :email, class: 'form-control', id: 'email', placeholder: 'Enter your email', required: true %>
+											</div>
+										</div>
+										<div class="col-md-12">
+											<div class="form-group">
+												<%= form.label :subject, 'Subject' %>
+												<%= form.text_field :subject, class: 'form-control', id: 'subject', placeholder: 'Enter subject', required: true %>
+											</div>
+										</div>
+										<div class="col-md-12">
+											<div class="form-group">
+												<%= form.label :message, 'Message' %>
+												<%= form.text_area :message, class: 'form-control', id: 'message', cols:"30", rows:"4", placeholder:"Message", required: true %>
+											</div>
+										</div>
+										<div class="col-md-12">
+											<div class="form-group">
+												<%= form.submit 'Send Message', class: 'btn btn-primary'%>
+											</div>
+										</div>
+									</div>
+								<% end %>
+							</div>
+						</div>
+						<div class="col-md-5 col-sm-5 col-5 d-flex align-items-stretch">
+							<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7539.922453310496!2d72.86191969328995!3d19.109356835679133!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c83966044071%3A0xdf3c0601bbc89ec!2sChakala%20(J%20B%20Nagar)!5e0!3m2!1sen!2sin!4v1573800500669!5m2!1sen!2sin" frameborder="0"  allowfullscreen=""></iframe>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-3">
+							<div class="dbox w-100 text-center">
+								<div class="icon d-flex align-items-center justify-content-center">
+									<span class="fa fa-map-marker"></span>
+								</div>
+								<div class="text">
+									<p><span>Address:</span> Andheri - Kurla Rd, near Hotel Kohinoor Continental, J B Nagar, Andheri (E, Mumbai, Maharashtra 400059</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="dbox w-100 text-center">
+								<div class="icon d-flex align-items-center justify-content-center">
+									<span class="fa fa-phone"></span>
+								</div>
+								<div class="text">
+									<p><span>Phone:</span><br><a href="tel://1234567920">+91 9123364238</a></p>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="dbox w-100 text-center">
+								<div class="icon d-flex align-items-center justify-content-center">
+									<span class="fa fa-paper-plane"></span>
+								</div>
+								<div class="text">
+									<p><span>Email:</span> <a href="mailto:info@yoursite.com">dasdevguide@gmail.com</a></p>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="dbox w-100 text-center">
+								<div class="icon d-flex align-items-center justify-content-center">
+									<span class="fa fa-globe"></span>
+								</div>
+								<div class="text">
+									<p><span>Website</span> <a href="#">www.dasdevguide.com</a></p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
-</div>
+</section>

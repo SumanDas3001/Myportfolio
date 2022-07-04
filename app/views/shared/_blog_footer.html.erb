@@ -1,12 +1,12 @@
 <style>
   .footer-59391 {
-  margin-top: 300px;
+  margin-top: 250px;
   border-top: 1px solid #efefef;
-  background-color: #f8f9fa !important;
+  background-color: #fff;
   font-family: "Poppins", sans-serif;
   padding: 4rem 0; }
   .footer-59391 .site-logo {
-    color: #f8f9fa !important; }
+    color: #fff; }
     .footer-59391 .site-logo a {
       font-size: 30px;
       color: #000;
@@ -38,7 +38,7 @@
         -webkit-transform: translate(-50%, -50%);
         -ms-transform: translate(-50%, -50%);
         transform: translate(-50%, -50%);
-        color: #f8f9fa !important; }
+        color: #fff; }
   .footer-59391 .nav-links li {
     display: inline-block; }
     .footer-59391 .nav-links li a {
@@ -74,11 +74,9 @@
       <div class="col-md-8 text-md-right">
         <ul class="list-unstyled social-icons">
           <li><a href="#" class="fb"><span class="icon-facebook"><%= fa_icon "facebook" %></span></a></li>
-          <li><a href="#" class="tw"><span class="icon-twitter"><%= fa_icon "twitter" %></span></a></li>
+          <li><a href="https://twitter.com/Suman07396436" target="_blank" class="tw"><span class="icon-twitter"><%= fa_icon "twitter" %></span></a></li>
           <li><a href="#" class="in"><span class="icon-instagram"><%= fa_icon "instagram" %></span></a></li>
-          <li><a href="#" class="be"><span class="icon-behance"><%= fa_icon "behance" %></span></a></li>
-          <li><a href="#" class="dr"><span class="icon-dribbble"><%= fa_icon "dribbble" %></span></a></li>
-          <li><a href="#" class="yt"><span class="icon-play"><%= fa_icon "play" %></span></a></li>
+          <li><a href="https://www.youtube.com/channel/UC14lUtQbiBH1qtbieEr045Q" target="_blank" class="yt"><span class="icon-play"><%= fa_icon "youtube" %></span></a></li>
         </ul>
       </div>
     </div>
@@ -92,18 +90,17 @@
       </div>
       <div class="col-md-6 text-md-right">
         <ul class="nav-links list-unstyled nav-right">
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Our works</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Blog</a></li>
-          <li><a href="#">Contact</a></li>
+          <li><%= link_to "Home", root_path  %></li>
+          <li><%= link_to "About Me", about_me_path  %></li>
+          <li><%= link_to "Blogs", blogs_path  %></li>
+          <li><%= link_to "Contact", contact_path  %></li>
         </ul>
       </div>
     </div>
     <div class="row">
       <div class="col ">
         <div class="copyright">
-          <p><small>Copyright 2019. All Rights Reserved.</small></p>
+          <p><small><%= CodecampViewTool::Render.copyright 'DasDevGuide', 'All right reserved'%></small></p>
         </div>
       </div>
     </div>

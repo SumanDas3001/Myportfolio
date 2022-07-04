@@ -11,7 +11,8 @@ Rails.application.routes.draw do
   get 'portfolio/:id', to: 'own_portfolios#show', as: 'portfolio_show' # custom portfolio show path
   get 'about-me', to: 'pages#about'
   get 'contact', to: 'pages#contact'
-  get 'tech-news', to: 'pages#tech_news'
+  post 'contact_us', to: 'pages#contact_us'
+  post 'tech-news', to: 'pages#tech_news'
   resources :blogs do
     member do
       get :toggle_status # This routes is for draft or published post
@@ -19,5 +20,5 @@ Rails.application.routes.draw do
     end
   end
   mount ActionCable.server => '/cable'
-  root "blogs#index"
+  root "pages#home"
 end

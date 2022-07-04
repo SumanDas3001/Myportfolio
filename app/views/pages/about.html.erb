@@ -1,37 +1,28 @@
-<div class="app-card-container">
-	<div class="card">
-		<h5><%= link_to 'Back', root_path %></h5>
-		<h1>About Me</h1>
+<style>
+	.profile-image {
+		width: 25%;
+		border-radius: 50%;
+		margin: 0 auto;
+		box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+	}
+</style>
 
-		<div class="row">
-			<div class="col-md-4">
-				<%= image_tag "profile.jpg", width: 300, alt:"Profile Image", class: 'profile-image' %>
-
-				<div class="skills">
-					<% @skills.each do |skill| %>
-						<div class="skill">
-							<h4><%= skill.title %></h4>
-							<div class="progress">
-								<div
-									class="progress-bar progress-bar-striped bg-warning"
-									role="progressbar"
-									aria-valuenow="<%= skill.percent_utilized %>"
-									aria-valuemax="100"
-									style="width: <%= skill.percent_utilized %>%"
-								></div>
-							</div>
-						</div>
-					<% end %>
+<div class="container login-box">
+	<div class="card" style:"width: 18rem;">
+		<%# <div class="card-header mb-2">About Me</div> %>
+		<div class="card-body">
+			<div class="row">
+				<%# <div class="float-right" > %>
+					<%= image_tag "profile.jpg", alt: "Profile Image", class: 'profile-image card-img-top mb-2' %>
+				<%# </div> %>
+				<div class="col-md-12 text-center">
+					<p class="lead">
+						<span class="element"></span>
+					</p>
+					<%= render 'pages/about_buttons' %>
+					<%= render 'pages/about_job_history' %>
+					<%= render 'pages/about_education' %>
 				</div>
-			</div>
-			<div class="col-md-8">
-				<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution.</p>
-
-				<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution.</p>
-
-				<%= render 'pages/about_buttons' %>
-				<%= render 'pages/about_job_history' %>
-				<%= render 'pages/about_education' %>
 			</div>
 		</div>
 	</div>

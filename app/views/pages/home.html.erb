@@ -1,9 +1,17 @@
-<div class="inner cover">
-  <h1 class="cover-heading">Welcome.</h1>
-  <p class="lead">
-    <span class="element"></span>
-  </p>
-  <p class="lead">
-  	<%= link_to "About Me", about_me_path, class: 'btn btn-lg btn-secondary'%>
-  </p>
+<div class="container text-center text-lg-left login-box">
+  <div class="row">
+    <div class="col-lg-7 col-md-12 col-sm-12">
+      <h1><span class="highlight-word text-center">Welcome to DasDevGuide</span></h1>
+      <p>This is a simple hero unit, a simple jumbotron-style component  for calling extra attention to featured content or information.</p>
+      <span class="text-center d-inline-block">
+        <a class="btn btn-primary btn-lg w-100" href="#" role="button">About Me</a>
+      </span>
+      <span class="text-center d-inline-block">
+        <a class="btn btn-dark btn-lg w-100" href="#" role="button">Explore Blog</a>
+      </span>
+    </div>
+    <div class="col-lg-5 align-items-center d-none d-sm-none d-md-none d-lg-block">
+      <%= image_tag "learn-coding-online-for-free.png", alt: "", class: 'img-fluid' %>
+    </div>
+  </div>
 </div>

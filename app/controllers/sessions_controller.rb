@@ -3,7 +3,6 @@ class SessionsController < Devise::SessionsController
   prepend_before_action :allow_params_authentication!, only: :create
   prepend_before_action :verify_signed_out_user, only: :destroy
   prepend_before_action(only: %i[create destroy]) { request.env['devise.skip_timeout'] = true }
-  layout 'common'
 
   # GET /resource/sign_in
   def new

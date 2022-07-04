@@ -5,6 +5,8 @@ class ApplicationController < ActionController::Base
 	include DefaultPageContent
 	include CurrentUserConcern
 
+  layout 'common'
+
 	def emojify(content)
     h(content).to_str.gsub(/:([\w+-]+):/) do |match|
       if emoji = Emoji.find_by_alias($1)
