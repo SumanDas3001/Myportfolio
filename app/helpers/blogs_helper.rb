@@ -16,7 +16,6 @@ module BlogsHelper
     options = {
       no_intra_emphasis: true,
       fenced_code_blocks: true,
-      no_intra_emphasis: true,
       autolink: true,
       lax_html_blocks: true,
       lax_spacing: true,
