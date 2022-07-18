@@ -92,7 +92,7 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   
-  config.action_cable.allowed_request_origins = ['https://sumandas-portfolio.herokuapp.com', 'http://sumandas-portfolio.herokuapp.com', 'http://www.dasdevguide.com', 'https://www.dasdevguide.com']
+  config.action_cable.allowed_request_origins = ['https://sumandas-portfolio.herokuapp.com', 'http://sumandas-portfolio.herokuapp.com', 'https://www.dasdevguide.com']
   config.action_cable.url = "wss://www.dasdevguide.com/cable"
   
   # config.action_mailer.default_url_options = { :host => 'sumandas-portfolio.herokuapp.com', protocol: 'https' }
